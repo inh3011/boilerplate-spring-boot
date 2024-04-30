@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url:
+    username:
+    password:
+  config:
+    activate:
+      on-profile: local
+---
+spring:
+  datasource:
+    url:
+    username:
+    password:
+  config:
+    activate:
+      on-profile: dev
+---
+spring:
+  datasource:
+    url:
+    username:
+    password:
+  config:
+    activate:
+      on-profile: prod
+---
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    generate-ddl: false
