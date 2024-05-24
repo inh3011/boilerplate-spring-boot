@@ -15,6 +15,7 @@ public enum ExceptionCode {
     LOGIN_DISABLED(HttpStatus.UNAUTHORIZED, "관리자 승인 대기중입니다."),
     LOGIN_EXPIRED(HttpStatus.UNAUTHORIZED, "계정이 만료되었습니다. 관리자에게 문의해주세요"),
     LOGIN_CREDENTIAL_EXPIRED(HttpStatus.UNAUTHORIZED, "계정 인증이 만료되었습니다. 관리자에게 문의해주세요."),
+    INVALID_PASSWORD(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다."),
     ;
     private final HttpStatus httpStatus;
     private final String message;
