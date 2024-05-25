@@ -1,4 +1,4 @@
-package com.boilerplate.exception.enumuration;
+package com.boilerplate.presentation.exception.enumuration;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

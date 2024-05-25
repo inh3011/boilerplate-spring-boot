@@ -9,6 +9,6 @@
 - [ ] 파일 시스템 (s3, local)
 - [ ] 엑셀 (import, export)
 - [ ] 예외 처리 (Handler, Validation)
-- [ ] QueryDsl
+- [X] QueryDsl
 - [ ] 메일 (SMTP)
 - [ ] springdoc Swagger3

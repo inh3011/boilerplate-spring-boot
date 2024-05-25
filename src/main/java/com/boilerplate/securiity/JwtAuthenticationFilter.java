@@ -1,8 +1,8 @@
 package com.boilerplate.securiity;
 
-import com.boilerplate.exception.enumuration.ExceptionCode;
-import com.boilerplate.exception.response.ExceptionResponse;
-import com.boilerplate.exception.response.ExceptionResponseEntityFactory;
+import com.boilerplate.presentation.exception.enumuration.ExceptionCode;
+import com.boilerplate.presentation.exception.response.ExceptionResponse;
+import com.boilerplate.presentation.exception.response.ExceptionResponseEntityFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
-package com.boilerplate.exception;
+package com.boilerplate.presentation.exception;
 
-import com.boilerplate.exception.enumuration.ExceptionCode;
+import com.boilerplate.presentation.exception.enumuration.ExceptionCode;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 

@@ -1,4 +1,4 @@
-package com.boilerplate.config;
+package com.boilerplate.common.config;
 
 import com.boilerplate.securiity.AuthorizationAccessDeniedHandler;
 import com.boilerplate.securiity.AuthorizationNoAuthenticationHandler;

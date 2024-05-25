@@ -1,9 +1,9 @@
-package com.boilerplate.exception;
+package com.boilerplate.presentation.exception;
 
-import com.boilerplate.exception.enumuration.ExceptionCode;
-import com.boilerplate.exception.response.ExceptionResponse;
-import com.boilerplate.exception.response.ExceptionResponseEntityFactory;
-import com.boilerplate.exception.response.FieldExceptionResponse;
+import com.boilerplate.presentation.exception.enumuration.ExceptionCode;
+import com.boilerplate.presentation.exception.response.ExceptionResponse;
+import com.boilerplate.presentation.exception.response.ExceptionResponseEntityFactory;
+import com.boilerplate.presentation.exception.response.FieldExceptionResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
