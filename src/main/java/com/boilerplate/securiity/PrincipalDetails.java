@@ -9,17 +9,22 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 public class PrincipalDetails implements UserDetails {
     private Long id;
 
+    @Getter
     private final String username;
 
     @JsonIgnore
     private String password;
 
+
+    @Getter
     private final Role role;
 
     public PrincipalDetails(User user) {
@@ -31,11 +36,14 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Set<GrantedAuthority> rolesAndAuthorities = new HashSet<>();
+        rolesAndAuthorities.add(role);
+
+        return rolesAndAuthorities;
     }
 
     @Override
-    public String getPassword() {
+    public String getUsername() {
         return this.username;
     }
 

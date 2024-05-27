@@ -16,6 +16,11 @@ public enum ExceptionCode {
     LOGIN_EXPIRED(HttpStatus.UNAUTHORIZED, "계정이 만료되었습니다. 관리자에게 문의해주세요"),
     LOGIN_CREDENTIAL_EXPIRED(HttpStatus.UNAUTHORIZED, "계정 인증이 만료되었습니다. 관리자에게 문의해주세요."),
     INVALID_PASSWORD(HttpStatus.UNAUTHORIZED, "비밀번호가 일치하지 않습니다."),
+
+    // TOKEN
+    TOKEN_NOT_FOUND_WHEN_REFRESH(HttpStatus.BAD_REQUEST, "REFRESH TOKEN 존재하지 않아 재발급 불가"),
+    TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "로그인이 만료되었습니다."),
+    TOKEN_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "다시 로그인해주세요."),
     ;
     private final HttpStatus httpStatus;
     private final String message;
