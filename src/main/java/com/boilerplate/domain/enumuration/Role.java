@@ -14,7 +14,6 @@ public enum Role implements GrantedAuthority {
         this.description = description;
     }
 
-    
     @Override
     public String getAuthority() {
         return "ROLE_" + this;
