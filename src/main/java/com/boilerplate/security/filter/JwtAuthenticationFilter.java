@@ -1,8 +1,10 @@
-package com.boilerplate.security;
+package com.boilerplate.security.filter;
 
 import com.boilerplate.presentation.exception.enumuration.ExceptionCode;
 import com.boilerplate.presentation.exception.response.ExceptionResponse;
 import com.boilerplate.presentation.exception.response.ExceptionResponseEntityFactory;
+import com.boilerplate.security.service.OAuth2UserPrincipal;
+import com.boilerplate.security.dto.JwtAuthenticationDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -45,7 +47,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
-        PrincipalDetails userDetails = (PrincipalDetails) authentication.getPrincipal();
+        OAuth2UserPrincipal userDetails = (OAuth2UserPrincipal) authentication.getPrincipal();
         // TODO : JWT 생성
 
         response.setStatus(HttpStatus.OK.value());

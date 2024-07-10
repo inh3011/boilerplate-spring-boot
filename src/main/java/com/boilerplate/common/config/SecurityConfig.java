@@ -1,8 +1,10 @@
 package com.boilerplate.common.config;
 
-import com.boilerplate.security.handler.AuthorizationAccessDeniedHandler;
-import com.boilerplate.security.handler.AuthorizationNoAuthenticationHandler;
-import com.boilerplate.security.JwtAuthorizationFilter;
+import com.boilerplate.security.HttpCookieOAuth2AuthorizationRequestRepository;
+import com.boilerplate.security.filter.JwtAuthorizationFilter;
+import com.boilerplate.security.handler.OAuth2AuthenticationFailureHandler;
+import com.boilerplate.security.handler.OAuth2AuthenticationSuccessHandler;
+import com.boilerplate.security.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +23,10 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final AuthorizationAccessDeniedHandler authorizationAccessDeniedHandler;
-    private final AuthorizationNoAuthenticationHandler authorizationNoAuthenticationHandler;
+    private final CustomOAuth2UserService customOAuth2UserService;
+    private final OAuth2AuthenticationSuccessHandler oAuth2AuthenticationSuccessHandler;
+    private final OAuth2AuthenticationFailureHandler oAuth2AuthenticationFailureHandler;
+    private final HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository;
     private final JwtAuthorizationFilter jwtAuthorizationFilter;
 
     @Bean
@@ -68,13 +72,15 @@ public class SecurityConfig {
                         authorizeRequests.anyRequest().permitAll());
 
 
-//        http
-//                .oauth2Login(configure ->
-//                        configure.authorizationEndpoint(config -> config.authorizationRequestRepository(httpCookieOAuth2AuthorizationRequestRepository))
-//                                .userInfoEndpoint(config -> config.userService(customOAuth2UserService))
-//                                .successHandler(oAuth2AuthenticationSuccessHandler)
-//                                .failureHandler(oAuth2AuthenticationFailureHandler)
-//                );
+        http
+                .oauth2Login(configure ->
+                        configure.authorizationEndpoint(config -> config
+                                        .baseUri("/oauth2/authorization")
+                                        .authorizationRequestRepository(httpCookieOAuth2AuthorizationRequestRepository))
+                                .userInfoEndpoint(config -> config.userService(customOAuth2UserService))
+                                .successHandler(oAuth2AuthenticationSuccessHandler)
+                                .failureHandler(oAuth2AuthenticationFailureHandler)
+                );
 
         // Authorize ExceptionHandler
 //        http

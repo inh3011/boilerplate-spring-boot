@@ -21,6 +21,8 @@ public enum ExceptionCode {
     TOKEN_NOT_FOUND_WHEN_REFRESH(HttpStatus.BAD_REQUEST, "REFRESH TOKEN 존재하지 않아 재발급 불가"),
     TOKEN_EXPIRED(HttpStatus.UNAUTHORIZED, "로그인이 만료되었습니다."),
     TOKEN_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "다시 로그인해주세요."),
+
+    COOKIE_EXCEPTION(HttpStatus.INTERNAL_SERVER_ERROR,"쿠키 처리 중 예외가 발생하였습니다"),
     ;
     private final HttpStatus httpStatus;
     private final String message;

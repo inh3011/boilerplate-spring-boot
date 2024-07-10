@@ -1,4 +1,4 @@
-package com.boilerplate.security;
+package com.boilerplate.security.filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
