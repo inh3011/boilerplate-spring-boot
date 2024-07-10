@@ -1,4 +1,4 @@
-package com.boilerplate.securiity;
+package com.boilerplate.security;
 
 import com.boilerplate.infrastructure.entity.User;
 import com.boilerplate.domain.enumuration.Role;

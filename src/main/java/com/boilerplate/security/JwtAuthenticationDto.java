@@ -1,4 +1,4 @@
-package com.boilerplate.securiity;
+package com.boilerplate.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;

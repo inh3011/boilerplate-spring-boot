@@ -1,4 +1,4 @@
-package com.boilerplate.securiity;
+package com.boilerplate.security.handler;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

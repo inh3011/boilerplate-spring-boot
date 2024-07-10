@@ -1,8 +1,8 @@
 package com.boilerplate.common.config;
 
-import com.boilerplate.securiity.AuthorizationAccessDeniedHandler;
-import com.boilerplate.securiity.AuthorizationNoAuthenticationHandler;
-import com.boilerplate.securiity.JwtAuthorizationFilter;
+import com.boilerplate.security.handler.AuthorizationAccessDeniedHandler;
+import com.boilerplate.security.handler.AuthorizationNoAuthenticationHandler;
+import com.boilerplate.security.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -68,16 +67,25 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests.anyRequest().permitAll());
 
-        // Authorize ExceptionHandler
-        http
-                .exceptionHandling(exceptionHandling ->
-                        exceptionHandling
-                                .authenticationEntryPoint(authorizationNoAuthenticationHandler)
-                                .accessDeniedHandler(authorizationAccessDeniedHandler));
 
-        http
+//        http
+//                .oauth2Login(configure ->
+//                        configure.authorizationEndpoint(config -> config.authorizationRequestRepository(httpCookieOAuth2AuthorizationRequestRepository))
+//                                .userInfoEndpoint(config -> config.userService(customOAuth2UserService))
+//                                .successHandler(oAuth2AuthenticationSuccessHandler)
+//                                .failureHandler(oAuth2AuthenticationFailureHandler)
+//                );
+
+        // Authorize ExceptionHandler
+//        http
+//                .exceptionHandling(exceptionHandling ->
+//                        exceptionHandling
+//                                .authenticationEntryPoint(authorizationNoAuthenticationHandler)
+//                                .accessDeniedHandler(authorizationAccessDeniedHandler));
+//
+//        http
 //                .addFilter(jwtAuthenticationFilter()) // Authenticate Filter 추가
-                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
+//                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

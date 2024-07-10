@@ -1,4 +1,4 @@
-package com.boilerplate.securiity;
+package com.boilerplate.security;
 
 import com.boilerplate.presentation.exception.enumuration.ExceptionCode;
 import com.boilerplate.presentation.exception.response.ExceptionResponse;
