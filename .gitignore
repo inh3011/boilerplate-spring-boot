@@ -172,3 +172,6 @@ gradle-app.setting
 logs/
 
 .idea/
+
+# Enviroment
+.env
