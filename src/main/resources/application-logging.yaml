@@ -1,0 +1,13 @@
+logging:
+  file:
+    path: logs
+  level:
+    com:
+      boilerplate: debug
+    org:
+      hibernate:
+        SQL: DEBUG
+        type.descriptor.sql.BasicBinder: TRACE
+  logback:
+    rolling policy:
+      max-history: 7

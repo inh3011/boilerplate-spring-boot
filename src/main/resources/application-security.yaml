@@ -1,0 +1,7 @@
+boilerplate:
+  jwt:
+    access-token-name: access_token
+    access-token-expired: 900000
+    refresh-token-name: refresh_token
+    refresh-token-expired: 1209600000
+    domain: localhost
