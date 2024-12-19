@@ -1,4 +1,4 @@
-package com.boilerplate.common.config;
+package com.boilerplate.config;
 
 import com.boilerplate.security.HttpCookieOAuth2AuthorizationRequestRepository;
 import com.boilerplate.security.filter.JwtAuthorizationFilter;

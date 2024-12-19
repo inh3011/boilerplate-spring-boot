@@ -1,4 +1,4 @@
-package com.boilerplate.common.config;
+package com.boilerplate.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;

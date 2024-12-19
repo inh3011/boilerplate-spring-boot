@@ -17,7 +17,6 @@ spring:
     open-in-view: false
 
 ---
-
 spring:
   config:
     activate:
@@ -31,7 +30,6 @@ spring:
       ddl-auto: none
 
 ---
-
 spring:
   config:
     activate:

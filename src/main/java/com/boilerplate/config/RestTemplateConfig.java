@@ -1,4 +1,4 @@
-package com.boilerplate.common.config;
+package com.boilerplate.config;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
