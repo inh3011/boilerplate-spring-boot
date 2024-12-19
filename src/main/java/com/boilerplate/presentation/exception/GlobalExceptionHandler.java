@@ -20,23 +20,26 @@ import java.util.NoSuchElementException;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ExceptionResponse> handleBusinessException(BusinessException e, HttpServletRequest request) {
-        log.error("REQUEST URI: {}, MESSAGE: {}", request.getRequestURI(), e.getMessage());
+    public ResponseEntity<ExceptionResponse> handleBusinessException(BusinessException exception, HttpServletRequest request) {
+        errorLog(request, exception.getMessage());
 
-        return ExceptionResponseEntityFactory.make(e.getHttpStatus(), e.getCode(), e.getMessage());
+        return ExceptionResponseEntityFactory.make(exception.getHttpStatus(), exception.getCode(), exception.getMessage());
     }
 
     @ExceptionHandler(NoSuchElementException.class)
-    protected ResponseEntity<ExceptionResponse> noSuchElementException(NoSuchElementException e, HttpServletRequest request) {
-        log.error("REQUEST URI: {}, MESSAGE: {}", request.getRequestURI(), e.getMessage());
+    protected ResponseEntity<ExceptionResponse> noSuchElementException(NoSuchElementException exception, HttpServletRequest request) {
+        errorLog(request, exception.getMessage());
 
         return ExceptionResponseEntityFactory.make(ExceptionCode.NOT_FOUND);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ExceptionResponse> handleMethodArgumentNotValid(MethodArgumentNotValidException exception, HttpServletRequest request) {
-        log.error("{} - request uri: {}", request.getMethod(), request.getRequestURI(), exception);
-
+        errorLog(request, exception.getMessage());
         return ResponseEntity.status(ExceptionCode.INVALID_REQUEST_BODY.getHttpStatus()).body(FieldExceptionResponse.make(ExceptionCode.INVALID_REQUEST_BODY, exception.getBindingResult()));
+    }
+
+    public void errorLog(HttpServletRequest request, String errorMessage) {
+        log.error("REQUEST URI: {}, MESSAGE: {}", request.getRequestURI(), errorMessage);
     }
 }
