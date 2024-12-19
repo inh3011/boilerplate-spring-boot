@@ -1,7 +1,7 @@
 spring:
   profiles:
     group:
-      local: database,logging,oauth2,security
+      local: database,logging,oauth2,security,mail
       dev: database,logging,oauth2,security
       prod: database,logging,oauth2,security
     default: local

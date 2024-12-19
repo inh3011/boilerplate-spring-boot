@@ -1,3 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: local
 logging:
   file:
     path: logs

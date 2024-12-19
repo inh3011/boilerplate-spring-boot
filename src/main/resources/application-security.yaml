@@ -1,3 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: local
 boilerplate:
   jwt:
     access-token-name: access_token
