@@ -10,8 +10,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@RequiredArgsConstructor
 @Component
+@RequiredArgsConstructor
 public class SpringEmailSender implements EmailSender {
 
     private final JavaMailSender mailSender;
@@ -39,11 +39,9 @@ public class SpringEmailSender implements EmailSender {
         } catch (MailException e) {
             log.error("[메일 발송의 실패] {}. 제목: {}, 발신자: {} 수신자: {}", e.getMessage(), subject, from, to);
         }
-
-
     }
 
-    @Async("threadPoolTaskExecutor")
+    @Async(value = "threadPoolTaskExecutor")
     @Override
     public void asyncSend(
             String from,
