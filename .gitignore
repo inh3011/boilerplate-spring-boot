@@ -179,3 +179,6 @@ logs/
 
 # Enviroment
 .env
+
+# Generated
+generated/
