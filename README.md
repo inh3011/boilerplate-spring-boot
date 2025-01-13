@@ -20,5 +20,5 @@
 - [ ] **엑셀**: 파일 Import 및 Export 기능
 - [ ] **예외 처리**: 예외 핸들링 및 Validation 처리
 - [X] **QueryDSL**: 동적 쿼리 작성 지원
-- [ ] **메일**: SMTP 기반 이메일 전송
-- [ ] **API 문서화**: SpringDoc 기반 Swagger3 지원
+- [x] **메일**: SMTP 기반 이메일 전송
+- [x] **API 문서화**: SpringDoc 기반 Swagger3 지원
