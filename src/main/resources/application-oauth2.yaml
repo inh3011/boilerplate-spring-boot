@@ -6,19 +6,19 @@ spring:
     oauth2:
       client:
         registration:
-#          google:
-#            client-id:
-#            client-secret:
-#            scope:
-#              - profile
-#              - email
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - profile
+              - email
 
           naver:
-            client-id: H0JlkouFYrGG3L1ho2Yj
-            client-secret: LZNC1i53lL
+            client-id: ${NAVER_CLIENT_ID}
+            client-secret: ${NAVER_CLIENT_SECRET}
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8080/login/oauth2/code/naver
+            redirect-uri: ${NAVER_REDIRECT_URI}
             scope:
               - name
               - email
@@ -26,15 +26,15 @@ spring:
             client-name: Naver
 
           kakao:
-            client-id: a389cced6b32b6a02477b231e3772ba2
-            client-secret: rgydHA812Xk0m737EeMVW1NGOZsGaKM0
+            client-id: ${KAKAO_CLIENT_ID}
+            client-secret: ${KAKAO_CLIENT_SECRET}
             client-authentication-method: client_secret_post
             authorization-grant-type: authorization_code
             scope:
               - profile_nickname
               - profile_image
               - account_email
-            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            redirect-uri: ${KAKAO_REDIRECT_URI}
             client-name: Kakao
 
         provider:
