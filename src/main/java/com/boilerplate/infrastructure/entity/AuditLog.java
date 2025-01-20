@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @Table(name = "audit_logs")
-public class AuditLog {
+public class AuditLog{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +29,6 @@ public class AuditLog {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "user_id")
-    private Long userId;
-
     @Column(name = "request", columnDefinition = "TEXT")
     private String request;
 
@@ -44,14 +41,12 @@ public class AuditLog {
             String entityName,
             Long entityId,
             String username,
-            String request,
-            Long userId
+            String request
     ) {
         this.action = action;
         this.entityName = entityName;
         this.entityId = entityId;
         this.username = username;
-        this.userId = userId;
         this.request = request;
         this.createdAt = LocalDateTime.now();
     }
