@@ -35,7 +35,7 @@ public class SecurityConfig {
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.addExposedHeader("*");
-        configuration.addAllowedOrigin("*");
+        configuration.addAllowedOriginPattern("*");
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource configurationSource = new UrlBasedCorsConfigurationSource();
@@ -57,8 +57,7 @@ public class SecurityConfig {
 
         http
                 .csrf(AbstractHttpConfigurer::disable) // CSRF Disable
-                .cors(cors ->
-                        cors.configurationSource(corsConfigurationSource())) // CORS 설정
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // CORS 설정
                 .httpBasic(HttpBasicConfigurer::disable) // HTTP 기본 인증 Disable
                 .formLogin(AbstractHttpConfigurer::disable) // formLogin Disable
 
@@ -68,9 +67,15 @@ public class SecurityConfig {
         ;
 
         http
-                .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().permitAll());
-
+                .authorizeHttpRequests(authorizeRequest -> authorizeRequest
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html",
+                                "/api-docs/**"
+                        ).permitAll()
+                        .anyRequest().authenticated()
+                );
 
         http
                 .oauth2Login(configure ->
